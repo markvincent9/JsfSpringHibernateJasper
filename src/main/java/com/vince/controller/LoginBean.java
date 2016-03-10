@@ -78,7 +78,6 @@ public class LoginBean {
     }
 
     public String signUpUser(){
-        System.out.println("wahaha");
         navigationBean.setContent("faces/register.xhtml");
         return "index.xhtml";
     }
@@ -96,7 +95,6 @@ public class LoginBean {
         }else{
 
             setLoginMode(false);
-            System.out.println("invalid user");
             context.addCallbackParam("loggedIn", loginMode);
         }
     }

@@ -65,7 +65,6 @@ public class CartBean {
     public void addToCart(Book book){
         if(!ifCartContainsBook(cartItemList, book.getId())){
             cartItemList.add(new CartItem(book, 1));
-            System.out.println("Book " + book.getBookTitle() + " was added");
         }
     }
 

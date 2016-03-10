@@ -34,7 +34,6 @@ public class PurchaseService {
 
         for(CartItem cartItem: cart){
             Book bookToUpdate = cartItem.getBook();
-            System.out.println(bookToUpdate.getBookTitle() + ": id " +bookToUpdate.getId());
             bookToUpdate.setStock(bookToUpdate.getStock() - cartItem.getQuantity());
             bookDao.save(bookToUpdate);
 
