@@ -1,0 +1,33 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile"
+                xmlns:b="http://bootsfaces.net/ui">
+
+
+
+    <div class="ui-grid ui-grid-responsive">
+        <ui:repeat value="#{bookListBean.bookList}" var="book">
+            <div class="#{loginBean.loginMode ? 'ui-grid-col-4':'ui-grid-col-3'}">
+                <h:form style="padding: 0px 25px 0px 25px; margin-bottom: 25px">
+                    <p:panel>
+                        <f:facet name="header" >
+                            <span title="#{book.bookTitle}">#{book.bookTitle.length() gt 28 ?
+                                    book.bookTitle.substring(0,28).concat('...') : book.bookTitle}</span>
+
+                        </f:facet>
+                        <h:panelGrid style="margin: 0 auto" columns="1" cellpadding="10">
+                            <p:graphicImage value="#{book.imgUrl}" height="150" width="100%" />
+                        </h:panelGrid>
+                        <f:facet name="footer">
+                            <p:commandButton icon="ui-icon-cart" value="Add to Cart" action="#{cartBean.addToCart(book)}" update=":bookstoreCart"/>
+                        </f:facet>
+                    </p:panel>
+                </h:form>
+            </div>
+        </ui:repeat>
+    </div>
+
+</ui:composition>

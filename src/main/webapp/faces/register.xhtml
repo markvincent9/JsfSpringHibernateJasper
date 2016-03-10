@@ -1,0 +1,39 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile"
+                xmlns:b="http://bootsfaces.net/ui">
+
+    <b:container>
+        <b:row>
+            <b:column span="4" offset="4">
+                <h:form>
+                    <p:panel>
+                        <f:facet name="header">
+                            <h:outputText value="Sign-up" />
+                        </f:facet>
+                        <p:panelGrid style="width:100%;" columns="2" class="no-border-panelgrid">
+                            <p:outputLabel value="Username: " />
+                            <p:inputText value="#{signUpBean.username}" style="width:100%;"/>
+                            <p:outputLabel value="Password: " />
+                            <p:password value="#{signUpBean.password}" style="width:100%;"/>
+                            <p:outputLabel value="Confirm Password: " />
+                            <p:password value="#{signUpBean.confirmPassword}" style="width:100%;"/>
+                            <p:outputLabel value="Email: " />
+                            <p:inputText value="#{signUpBean.email}" style="width:100%;"/>
+                            <p:outputLabel value="Repeat Email: " />
+                            <p:inputText value="#{signUpBean.confirmEmail}" style="width:100%;"/>
+                        </p:panelGrid>
+                        <f:facet name="footer">
+                                <p:commandButton type="reset" value="Clear" />
+                                <p:commandButton type="submit" class="pull-right" value="Register" action="#{signUpBean.register}"/>
+                        </f:facet>
+                    </p:panel>
+                </h:form>
+            </b:column>
+        </b:row>
+    </b:container>
+
+</ui:composition>

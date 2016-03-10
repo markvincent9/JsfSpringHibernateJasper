@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="190e299e-6800-4c33-94be-2e35b60f0ed6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="transactionId" class="java.lang.String"/>
+	<parameter name="transactionTotal" class="java.lang.String"/>
+	<field name="bookTitle" class="java.lang.String"/>
+	<field name="bookPrice" class="java.lang.String"/>
+	<field name="quantity" class="java.lang.String"/>
+	<field name="total" class="java.lang.String"/>
+	<field name="transactionTotal" class="java.lang.String"/>
+	<field name="transactionId" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="196" y="26" width="160" height="36" uuid="b94dfe75-9ad6-4200-a47c-47784cd62ebf"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[Transaction Receipt]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="0" width="88" height="20" uuid="3209d664-85bd-4c22-8bac-58d479d17bba"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{transactionId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="339" y="0" width="104" height="20" uuid="823de9de-034b-4f08-9cdd-a84d02302ec7"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Transaction Id:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="17" width="100" height="20" uuid="cb6cc352-0969-4bb1-8aae-10ef024f4f62"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Book Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="17" width="114" height="20" uuid="e5711e5a-ae78-4a1d-9fd1-1f5cd420cd45"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="327" y="17" width="100" height="20" uuid="3827d7b8-a190-4651-851a-61c9fd4e4813"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="443" y="17" width="100" height="20" uuid="f2145b11-7b6c-4106-93fb-d731dcd108c9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="14" y="6" width="166" height="20" uuid="b0ef54b2-1714-443b-b3d3-403541eed6a8"/>
+				<textFieldExpression><![CDATA[$F{bookTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="196" y="7" width="114" height="20" uuid="32fe2b47-591f-4818-bf0d-b10bdc4735ae"/>
+				<textFieldExpression><![CDATA[$F{bookPrice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="327" y="7" width="100" height="20" uuid="3379f07c-f9a3-4865-8e94-f2ccf3895bec"/>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="29" width="555" height="1" uuid="6c0efa3b-d314-48fd-a4d9-d5e7654c4d96"/>
+			</line>
+			<textField>
+				<reportElement x="443" y="6" width="100" height="20" uuid="41619861-ea43-4367-adea-873c487ceb2c"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="386" y="20" width="41" height="20" uuid="73d295f3-3b01-4fb9-b26a-bc749a6803b2"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="443" y="20" width="100" height="20" uuid="8bec3b64-fba7-4386-abbb-48e3f9144b2b"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{transactionTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

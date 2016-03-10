@@ -1,0 +1,50 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile"
+                xmlns:b="http://bootsfaces.net/ui">
+
+    <h:form>
+        <b:navBar brand="Bookstore" brandHref="#"  fixed="top" >
+            <b:navbarLinks pull="right">
+                <b:navLink>
+                    <p:commandButton style="margin-top: 12px" type="button"  id="loginBtn" value="Login" rendered="#{!loginBean.loginMode}"/>
+                    <p:overlayPanel id="loginPanel" widgetVar="loginPanelWv" for="loginBtn" hideEffect="fade">
+                        <p:panelGrid class="no-border-panelgrid" cellpadding="10">
+                            <p:row>
+                                <p:column>
+                                    <h:outputLabel value="Username:"/>
+                                </p:column>
+                                <p:column>
+                                    <p:inputText value="#{loginBean.username}"/>
+                                </p:column>
+                            </p:row>
+                            <p:row >
+                                <p:column>
+                                    <h:outputLabel value="Password:" />
+                                </p:column>
+                                <p:column>
+                                    <p:password value="#{loginBean.password}"/>
+                                </p:column>
+                            </p:row>
+                            <p:row>
+                                <p:column />
+                                <p:column>
+                                    <p:commandButton value="Login" action="#{loginBean.login}" oncomplete="handleLoginRequest(xhr, status, args)"/>
+                                    <p:commandButton class="pull-right" value="Sign Up" action="#{loginBean.signUpUser}" update=":bookstoreContent :bookstoreNavbar"/>
+                                </p:column>
+                            </p:row>
+                        </p:panelGrid>
+                    </p:overlayPanel>
+                </b:navLink>
+                <b:navLink value="Welcome, #{loginBean.user.username}" rendered="#{loginBean.loginMode}"/>
+                <b:navLink>
+                    <p:commandButton style="margin-top: 12px" action="#{loginBean.logout}" value="Logout" rendered="#{loginBean.loginMode}" update=":bookstoreContent :bookstoreNavbar"/>
+                </b:navLink>
+            </b:navbarLinks>
+        </b:navBar>
+    </h:form>
+
+</ui:composition>

@@ -1,0 +1,26 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile"
+                xmlns:b="http://bootsfaces.net/ui">
+
+    <h:form id="bookstoreCart" rendered="#{!cartBean.purchaseView}">
+        <p:panel style="width: 100%">
+            <f:facet name="header">
+                <p:outputLabel icon="ui-icon-cart" value="My Cart" />
+                <p:commandButton class="pull-right" value="Purchase" action="#{cartBean.purchaseView}"
+                disabled="#{empty cartBean.cartItemList}"/>
+            </f:facet>
+            <ui:repeat value="#{cartBean.cartItemList}" var="cartItem">
+                <p:panelGrid columns="1" class="no-border-panelgrid">
+                    <p:outputLabel value="#{cartItem.book.bookTitle}" />
+                    <p:commandButton value="Remove" action="#{cartBean.removeToCart(cartItem)}" update="bookstoreCart"/>
+                </p:panelGrid>
+                <hr />
+            </ui:repeat>
+            <h:link value="Empty" rendered="#{empty cartBean.cartItemList}"/>
+        </p:panel>
+    </h:form>
+</ui:composition>
