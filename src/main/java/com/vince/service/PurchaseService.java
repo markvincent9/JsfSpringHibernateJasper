@@ -44,7 +44,8 @@ public class PurchaseService {
             transactionItemsDao.save(transactionItems);
 
         }
-
+        
+        System.out.println(transaction.getId());
         return transaction.getId();
 
     }
